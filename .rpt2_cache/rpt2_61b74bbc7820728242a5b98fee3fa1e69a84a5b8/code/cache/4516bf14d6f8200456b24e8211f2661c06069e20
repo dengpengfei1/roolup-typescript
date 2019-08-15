@@ -1,0 +1,1 @@
+{"code":"'use strict';\r\n// let arr = Array.from(new Set(['a', 'b', 'c']))\r\n// export let obj = Object.assign({}, {a: 1})\r\nexport default 1;\r\n","references":[]}

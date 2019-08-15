@@ -1,0 +1,1 @@
+var r=Object.assign||function(r){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var e in a)Object.prototype.hasOwnProperty.call(a,e)&&(r[e]=a[e])}return r},t=Array.from(new Set(["a","b","c"])),a=r({},{a:1});export default t;export{a as obj};

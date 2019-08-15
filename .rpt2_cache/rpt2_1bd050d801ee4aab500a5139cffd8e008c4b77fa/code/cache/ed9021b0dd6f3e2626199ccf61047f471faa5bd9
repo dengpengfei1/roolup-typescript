@@ -1,0 +1,1 @@
+{"code":"'use strict';\r\nvar arr = Array.from(new Set(['a', 'b', 'c']));\r\nexport var obj = Object.assign({}, { a: 1 });\r\nexport default 1;\r\n","references":["/Users/dengpengfei/Desktop/project/test/lib-typescript/src/interface/index.ts"]}
