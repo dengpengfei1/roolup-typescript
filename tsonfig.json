@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "noImplicitAny" : false,
+        "moduleResolution": "node",
+        "lib": ["es2015", "es2016", "es2017", "dom", "es2015.promise"],
+        "declaration": true,
+        "target": "es5",
+        "module": "es6",
+        "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "removeComments": true
+    }
+}

@@ -20,7 +20,14 @@ export default {
         exclude: 'node_modules/**'
     },
     plugins: [
-        rollupTypescript(),
+        rollupTypescript({
+            /**
+             * json 文件中 declaration 为 true，
+             * 打包出的 bundle 会包含 declare 文件，
+             * 作为类型标识用
+             */
+            tsconfig: './tsonfig.json'
+        }),
         terser(),
         babel({
             exclude: 'node_modules/**'

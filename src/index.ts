@@ -7,5 +7,9 @@ let a:aaa = {
 }
 
 let arr = Array.from(new Set(['a', 'b', 'c']))
+
 export let obj = Object.assign({}, {a: 1})
 export default arr
+export let p = new Promise((resolve, reject) => {
+    resolve()
+})

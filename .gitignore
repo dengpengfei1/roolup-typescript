@@ -3,6 +3,7 @@ node_modules
 /dist
 yarn.lock
 package-lock.json
+/.rpt2_cache
 
 
 # local env files

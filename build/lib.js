@@ -1,1 +1,8 @@
-var r=Object.assign||function(r){for(var t=1;t<arguments.length;t++){var a=arguments[t];for(var e in a)Object.prototype.hasOwnProperty.call(a,e)&&(r[e]=a[e])}return r},t=Array.from(new Set(["a","b","c"])),a=r({},{a:1});export default t;export{a as obj};
+var arr = Array.from(new Set(['a', 'b', 'c']));
+var obj = Object.assign({}, { a: 1 });
+var p = new Promise(function (resolve, reject) {
+    resolve();
+});
+
+export default arr;
+export { obj, p };
