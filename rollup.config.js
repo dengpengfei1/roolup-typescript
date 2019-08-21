@@ -2,6 +2,11 @@ import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
 import rollupTypescript from 'rollup-plugin-typescript2';
 
+let plugins = []
+if (process.env.NODE_ENV === 'production') {
+    plugins.push(terser()) // 代码压缩
+}
+
 export default {
     input: './src/index.ts',
     output: [
@@ -20,6 +25,7 @@ export default {
         exclude: 'node_modules/**'
     },
     plugins: [
+        ...plugins,
         rollupTypescript({
             /**
              * json 文件中 declaration 为 true，
@@ -28,7 +34,6 @@ export default {
              */
             tsconfig: './tsonfig.json'
         }),
-        terser(),
         babel({
             exclude: 'node_modules/**'
         }),
