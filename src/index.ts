@@ -5,6 +5,7 @@ let a:aaa = {
     b: '2',
     a: 3
 }
+console.log(a)
 
 let arr = Array.from(new Set(['a', 'b', 'c']))
 

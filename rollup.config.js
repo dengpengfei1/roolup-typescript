@@ -1,6 +1,7 @@
 import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
-import rollupTypescript from 'rollup-plugin-typescript2';
+import rollupTypescript from 'rollup-plugin-typescript2'
+import { eslint } from 'rollup-plugin-eslint'
 
 let plugins = []
 if (process.env.NODE_ENV === 'production') {
@@ -24,6 +25,7 @@ export default {
     watch: {
         exclude: 'node_modules/**'
     },
+    external: [],
     plugins: [
         ...plugins,
         rollupTypescript({
@@ -33,6 +35,9 @@ export default {
              * 作为类型标识用
              */
             tsconfig: './tsonfig.json'
+        }),
+        eslint({
+            include: ['src/*'],
         }),
         babel({
             exclude: 'node_modules/**'
