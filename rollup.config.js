@@ -13,6 +13,10 @@ if (process.env.NODE_ENV === 'production') {
         include: ['src/*'],
         fix: true
     }))
+} else {
+    eslintPlugin.push(eslint({
+        include: ['src/*']
+    }))
 }
 
 const globals = {
