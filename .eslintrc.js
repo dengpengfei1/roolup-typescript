@@ -1,19 +1,27 @@
 module.exports = {
     "root": true,
-    parser: 'babel-eslint',
+    parser: '@typescript-eslint/parser',
     parserOptions: {
-        sourceType: 'module',
+        "includes": [
+            "src/**/*.ts",
+            "src/*.ts",
+          ]
     },
-    "env": {
-        "es6": true,
-        "browser": true,
-    },
-    "plugins": [],
-    "globals": {
-        "MOCK": false,
-    },
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "rules": {
         // 以下规则  为 "off" 的  都是去除掉的规则, 不要看反了 ^-^
+        "comma-spacing": 2,//逗号前后的空格
+        "object-curly-spacing": [2, "always"],//大括号内是否允许不必要的空格
+        "array-bracket-spacing": [2, "never"],//是否允许非空数组里面有多余的空格
+        "no-trailing-spaces": "error",//一行结束后面不要有空格
+        "space-before-function-paren": ["error", "always"],//函数定义时括号前面要不要有空格
+        "no-multiple-empty-lines": ["error", {"max": 2}],//空行最多不能超过2行
         "eqeqeq": "off", // 要求使用 === 和 !==
         "one-var": "off", // 强制函数中的变量要么一起声明要么分开声明
         "one-var-declaration-per-line": "off", // 要求或禁止在变量声明周围换行
@@ -27,6 +35,8 @@ module.exports = {
         "no-lonely-if": "off", // 禁止 if 作为唯一的语句出现在 else 语句中
         "block-scoped-var": "off", // 强制把变量的使用限制在其定义的作用域范围内
         "global-require": "off", // 要求 require() 出现在顶层模块作用域中
+
+        "no-shadow": "off", // 禁止变量声明与外层作用域的变量同名
         "no-eval": "warn", // 禁用 eval
 
         "object-shorthand": "off", // 要求对象字面量中方法和属性使用简写语法
@@ -62,18 +72,28 @@ module.exports = {
             }
         ],
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-        'no-console': "off",
+        'no-console': 1,
         "indent": [
             "error",
             4,
             { "SwitchCase": 1 }
+        ],
+        "semi": [
+            "error",
+            "never"
         ],
         "no-continue": "off", // 不允许有 continue
         "no-restricted-syntax": ["error", "WithStatement"],
         "no-underscore-dangle": ["error", { "allowAfterThis": true }], // 只允许 this 后面有下划线,
         "import/prefer-default-export": "off",
         "no-new": "off",
+        "linebreak-style": "off", // 换行符
+        "import/first": "off", // import 必须在代码最上面
+        "prefer-const": "off", // 没有修改的变量必须用 const
+        "import/no-unresolved": "off", // import路径找不到,
         "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
         "default-case": "off",
+        "no-nested-ternary": "off"
     }
 }

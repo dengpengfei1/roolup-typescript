@@ -7,7 +7,8 @@
   "scripts": {
     "test": "test",
     "build": "NODE_ENV=production rollup -c rollup.config.js",
-    "dev": "NODE_ENV=development rollup -c -w rollup.config.js"
+    "dev": "NODE_ENV=development rollup -c -w rollup.config.js",
+    "lint": "eslint --fix 'src/**/*.{js,ts,tsx}'"
   },
   "keywords": [
     "ts"
@@ -15,8 +16,12 @@
   "author": "dengpengfei",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^12.7.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint-config-prettier": "^6.1.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "@babel/core": "^7.5.5",
-    "babel-eslint": "^10.0.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
@@ -33,5 +38,6 @@
     "rollup-plugin-typescript2": "^0.22.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3"
-  }
+  },
+  "dependencies": {}
 }
