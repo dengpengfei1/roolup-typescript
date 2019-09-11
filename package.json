@@ -6,8 +6,8 @@
   "module": "./build/lib.js",
   "scripts": {
     "test": "test",
-    "build": "NODE_ENV=production rollup -c rollup.config.js",
-    "dev": "NODE_ENV=development rollup -c -w rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "dev": "cross-env NODE_ENV=development rollup -c -w rollup.config.js",
     "lint": "eslint --fix 'src/**/*.{js,ts,tsx}'"
   },
   "keywords": [
@@ -16,12 +16,10 @@
   "author": "dengpengfei",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
     "@types/node": "^12.7.2",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
-    "eslint-config-prettier": "^6.1.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "@babel/core": "^7.5.5",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
@@ -32,12 +30,17 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-2": "^6.5.0",
     "cross-env": "^5.2.0",
+    "eslint-config-prettier": "^6.1.0",
     "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-typescript2": "^0.22.1",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }

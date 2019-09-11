@@ -1,4 +1,6 @@
 'use strict'
+import Vue from 'vue'
+console.dir(new Vue)
 
 import { aaa } from './interface/index'
 let a: aaa = {

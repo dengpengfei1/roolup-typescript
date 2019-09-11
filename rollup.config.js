@@ -1,4 +1,5 @@
 import { terser } from 'rollup-plugin-terser'
+import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import rollupTypescript from 'rollup-plugin-typescript2'
@@ -47,8 +48,16 @@ export default {
     ],
     plugins: [ // 插件执行顺序，从上至下 
         ...eslintPlugin,
+        /**
+         *  1. 第三方模块并不会被 rollup 正确加载，node 模块使用的是 commonJS, 它不会被 rollup 兼容因此不能直接被使用
+         *  2. 直接 import Vue from 'vue/dist/vue.min' 这样引用，就不要配置这个插件了，因为 vue.min.js 不是 commonjs 模块
+         */
+        resolve({ 
+            // main 和 browser 属性决定将 package.json 中的哪个字段对应的文件应用到 bundle 中
+            mainFields: ['module', 'main']
+        }),
         commonjs({
-            namedExports: { // 引用 commonjs 规范的模块
+            namedExports: { // 引用 commonjs 规范的模块，转为 es 模块
                 // 'getPlatform': ['getPlatform']
             }
         }),
